@@ -1,3 +1,4 @@
+package RubixCubeGeneticSolver;
 
 
 import java.util.*;
