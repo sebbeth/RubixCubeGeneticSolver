@@ -16,6 +16,12 @@ public class RubixCubeManualInterface {
 
         rubixCubeSimulation = new RubixCubeSimulation(args[0]);
 
+        if (args.length == 2) { // take input string from from input argument
+
+            System.out.println("End state: " + rubixCubeSimulation.transformCubeFromCommandString(args[1]));
+
+            return;
+        }
 
 
         while (true) {

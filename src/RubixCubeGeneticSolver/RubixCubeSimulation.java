@@ -113,8 +113,66 @@ public class RubixCubeSimulation {
 
     }
 
+    public String transformCubeFromCommandString(String input) {
 
-    /*
+        /*
+        Preconditions: Cube has been instantiated and loaded from input file.
+        Postconditions: inputCube transformed using transformations described in input string.
+
+        Valid input string generated using the alphabet {0,1,2,3,4,5,+,-}
+        Input example: '0+1-1-1+3+3-5+'
+     */
+        int currentSide = -1;
+
+        for (char c : input.toCharArray() ) {
+
+           switch (c) {
+
+               case '+':
+                   if (currentSide != -1) {
+                       cubeData = performOperationUponCube(currentSide,1,cubeData);
+                   }
+                   break;
+               case '-':
+                   if (currentSide != -1) {
+                       cubeData = performOperationUponCube(currentSide,1,cubeData);
+                   }
+                   break;
+               case '0':
+                   currentSide = 0;
+                   break;
+               case '1':
+                   currentSide = 1;
+                   break;
+               case '2':
+                   currentSide = 2;
+                   break;
+               case '3':
+                   currentSide = 3;
+                   break;
+               case '4':
+                   currentSide = 4;
+                   break;
+               case '5':
+                   currentSide = 5;
+                   break;
+               default:
+
+           }
+
+
+        }
+
+        saveOutputToFile("output.txt");
+
+       return cubeData.toString();
+    }
+
+
+
+    private ArrayList<ArrayList> performOperationUponCube(int side, int turnDirection,ArrayList<ArrayList> inputCube) {
+
+         /*
 
     performOperationUponCube
 
@@ -122,8 +180,6 @@ public class RubixCubeSimulation {
 
 
      */
-
-    private ArrayList<ArrayList> performOperationUponCube(int side, int turnDirection,ArrayList<ArrayList> inputCube) {
 
 
         ArrayList<ArrayList> clonedCube = deepCopyCube(inputCube);
